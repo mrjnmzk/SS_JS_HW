@@ -36,7 +36,7 @@ console.log(typeof whatCountry);
 // task5
 console.log('task5');
 
-let isAdult = confirm('Are you sure that you adult');
+let isAdult = confirm('Are you sure that you adult?');
 console.log(isAdult);
 
 //task6
