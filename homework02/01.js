@@ -130,6 +130,7 @@ switch (curentTime) {
     case 16:
         alert('good day');
         break;
+
     case 17:
     case 18:
     case 19:
