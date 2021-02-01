@@ -38,16 +38,17 @@ randArray(5)
 
 //task4
 
-let a = prompt('Enter your integer number');
-let b = prompt('Enter your degree');
+let a = parseFloat(prompt('Enter your integer number'));
+let b = parseFloat(prompt('Enter your degree'));
 
 function raiseToDegree(a, b) {
     if (Number.isInteger(a) && Number.isInteger(b)) {
-        result = Math.pow(a, b);
+        result = a ** b;
         alert(`${a} ^ ${b} is: ${result}`);
     } else {
         alert(`wrong input`);
     }
+
 }
 
 raiseToDegree(a, b)
