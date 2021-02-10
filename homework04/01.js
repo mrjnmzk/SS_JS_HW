@@ -115,7 +115,7 @@ let num = parseInt(prompt('Enter id'));
 function showUser(id) {
     let user = { 'id': id };
     if (id < 0) {
-        alert("ID must not be negative: " + id);
+        throw new Error("ID must not to be negative: " + id);
     }
     return user;
 }
@@ -134,5 +134,5 @@ function showUsers(ids) {
     console.log(usersValid);
     return usersValid;
 }
-showUsers([7, -12, 44, 22]);
+showUsers([1, -2, 5, 12]);
 
