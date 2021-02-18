@@ -25,7 +25,7 @@ function changeCSS() {
 
     document.getElementById("text").style.fontFamily = "Comic Sans MS";
 
-    dovument.getElementById("text").style.fontSize = "20px";
+    document.getElementById("text").style.fontSize = "20px";
 }
 
 myButton.addEventListener("click", changeCSS);
@@ -57,3 +57,75 @@ button03.addEventListener("mouseup", colorMaker);
 
 link.addEventListener("mouseover", colorMaker);
 link.addEventListener("mouseout", colorMaker);
+
+// task 4
+
+function deleteName() { 
+    let select = document.getElementById("guys");
+    select.remove(select.selectedIndex);
+}
+
+button.addEventListener("click", deleteName);
+
+// task5
+
+function pressBtn(event) {
+    let message = document.createElement("p");
+    if (event.type == "click") {
+        message.innerHTML = "I was pressed";
+    } else if (event.type == "mouseover") {
+        message.innerHTML = "Mouse on me!";
+    } else if (event.type == "mouseout") {
+        message.innerHTML = "Mouse is not on me!"
+} 
+let messages = document.getElementById("messages")
+messages.appendChild(message)
+}
+liveBtn.addEventListener("click", pressBtn);
+liveBtn.addEventListener("mouseover", pressBtn);
+liveBtn.addEventListener("mouseout", pressBtn);
+
+// task6
+
+function widthHeight() { 
+    let text = "";
+    text += "<p> Width - " + window.innerWidth + "</p>";
+    text += "<p>Height - " + window.innerHeight + "</p>";
+    document.getElementById("widthHeight").innerHTML = text;
+
+}
+
+window.addEventListener("resize", widthHeight)
+window.addEventListener("load", widthHeight)
+
+// task7
+
+const CITIES = {
+    "usa": ["Texas", "Seatle", "Atlanta", "Filadelfia"],
+    "ger": ["Berlin", "Munich", "Dresden"],
+    "ukr": ["Lviv", "Kyiv", "Lutsk"]
+}
+
+function addCities() {
+    let cityElement = document.getElementById("cities")
+    let countryElement = document.getElementById("country");
+    let cities = CITIES[countryElement.value]
+    cityElement.innerHTML = "";
+    for (let i=0; i<cities.length; i++) {
+        let option = document.createElement("option");
+        option.text = cities[i];
+        cityElement.add(option);
+    }
+}
+function displaySelection() {
+    let cityElement = document.getElementById("cities")
+    let countryElement = document.getElementById("country");
+    let textCountry = countryElement.options[countryElement.selectedIndex].text;
+    let textCity = cityElement.options[cityElement.selectedIndex].text;
+    let output = document.getElementById("cityAndCountry");
+    output.innerText = `${textCountry}, ${textCity}`;
+}
+
+country.addEventListener("change", addCities);
+cities.addEventListener("change", displaySelection);
+country.addEventListener("change", displaySelection);
